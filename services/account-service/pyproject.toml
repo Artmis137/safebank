@@ -1,0 +1,20 @@
+[project]
+name = "account-service"
+version = "0.1.0"
+description = "SafeBank - microservice de gestion des comptes et des virements"
+readme = "README.md"
+authors = [
+    { name = "Mamadou NIMAGA", email = "mnimaga02@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.115",
+    "pydantic>=2.9",
+    "uvicorn[standard]>=0.30",
+]
+
+[dependency-groups]
+dev = [
+    "httpx>=0.27",
+    "pytest>=8.3",
+]
