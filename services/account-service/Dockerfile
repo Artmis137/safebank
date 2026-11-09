@@ -10,6 +10,9 @@ RUN useradd -m -u 1000 safebank && \
 
 WORKDIR /app
 
+# Changer d'utilisateur
+USER safebank
+
 # Copier les fichiers de configuration des dépendances
 COPY --chown=safebank:safebank pyproject.toml uv.lock ./
 
@@ -22,8 +25,6 @@ COPY --chown=safebank:safebank . .
 # Installer le projet lui-même dans l'environnement
 RUN uv sync --frozen --no-dev
 
-# Changer d'utilisateur
-USER safebank
 
 # Exposer le port de l'API
 EXPOSE 8000
